@@ -1,0 +1,14 @@
+version: "3.9"
+   
+services:
+  jupyter:
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./file:/home/jovyan/work
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+    command: "start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''"
